@@ -1,2 +1,2 @@
 # SnailsNotes
-This is a note about Java and C#
+## This repository is a notes about Java and C#
