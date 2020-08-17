@@ -29,7 +29,7 @@
 
 ### 流程图
 
-![git工作流程图](.\giteorkprogress.PNG)
+![git工作流程图](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/tool/giteorkprogress.PNG)
 
 
 
@@ -43,7 +43,7 @@
 
 ### 暂存区与版本库之间关系
 
-![暂存区与版本库](.\tempalte&repository.PNG)
+![暂存区与版本库](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/tool/tempalte%26repository.PNG)
 
 
 
