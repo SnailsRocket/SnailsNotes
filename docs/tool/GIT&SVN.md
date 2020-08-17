@@ -43,7 +43,7 @@
 
 ### 暂存区与版本库之间关系
 
-![](.\tempalte&repository.PNG)
+![暂存区与版本库](.\tempalte&repository.PNG)
 
 
 
