@@ -29,7 +29,7 @@
 
 ### 流程图
 
-![git工作流程图](.\git工作流程.PNG)
+![git工作流程图](.\giteorkprogress.PNG)
 
 
 
@@ -43,7 +43,7 @@
 
 ### 暂存区与版本库之间关系
 
-![](.\暂存区与版本库关系.PNG)
+![](.\tempalte&repository.PNG)
 
 
 
@@ -110,6 +110,18 @@
 ### git查案提交记录
 
 > git log
+
+
+
+### 常用操作
+
+> git add --all
+>
+> git commit -m  ""
+>
+> git push
+>
+> git status   // 查看工作区中新增或修改的文件
 
 
 
