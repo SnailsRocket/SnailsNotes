@@ -3,7 +3,7 @@
 
 ### 前端框架
 
-* [Angular项目模块介绍]([https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/AVERFramework/Angular/Angular%E9%A1%B9%E7%9B%AE%E6%A8%A1%E5%9D%97%E4%BB%8B%E7%BB%8D.md](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/AVERFramework/Angular/Angular项目模块介绍.md))
+* [Angular项目模块介绍](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/AVERFramework/Angular/Angular项目模块介绍.md)
 
 
 
