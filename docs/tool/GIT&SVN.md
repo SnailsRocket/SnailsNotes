@@ -129,15 +129,15 @@
 
 ### svn的概念
 
-* repository（源代码库）:**源代码统一存放的地方
+* repository（源代码库）:源代码统一存放的地方
 
-* Checkout（提取）:**当你手上没有源代码的时候，你需要从repository checkout一份
+* Checkout（提取）:当你手上没有源代码的时候，你需要从repository checkout一份
 
-* Commit（提交）:**当你已经修改了代码，你就需要Commit到repository
+* Commit（提交）:当你已经修改了代码，你就需要Commit到repository
 
-* Update (更新):**当你已经Checkout了一份源代码， Update一下你就可以和Repository上的源代码同步，你手上的代码就会有最新的变更
+* Update (更新):当你已经Checkout了一份源代码， Update一下你就可以和Repository上的源代码同步，你手上的代码就会有最新的变更
 
-  > 如果两个程序员同时修改了同一个文件呢, SVN 可以合并这两个程序员的改动，实际上SVN管理源代码是以行为单位的，就是说两个程序员只要不是修改了同一行程序，SVN都会自动合并两种修改。如果是同一行，SVN 会提示文件 Conflict, 冲突，需要手动确认
+> 如果两个程序员同时修改了同一个文件呢, SVN 可以合并这两个程序员的改动，实际上SVN管理源代码是以行为单位的，就是说两个程序员只要不是修改了同一行程序，SVN都会自动合并两种修改。如果是同一行，SVN 会提示文件 Conflict, 冲突，需要手动确认
 
   
 
