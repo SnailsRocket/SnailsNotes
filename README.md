@@ -5,7 +5,7 @@
 
 * [Angular项目模块介绍](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/AVERFramework/Angular/Angular项目模块介绍.md)
 
-
+* [Angular2常见命令]()
 
 ### centos7项目部署 
 
