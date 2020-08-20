@@ -19,6 +19,7 @@
 ### Tools Guide
 
 * [Git&SVN](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/tool/GIT%26SVN.md)
+* [MysqlWorkbench 使用bug](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/tool/mysqlworkbench.md)
 
 
 
