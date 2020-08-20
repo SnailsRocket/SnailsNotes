@@ -16,7 +16,7 @@
 
 
 
-### [算法]()
+### [算法](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/newcoder/牛客网算法题.md)
 
 
 
