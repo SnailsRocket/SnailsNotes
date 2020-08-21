@@ -31,7 +31,7 @@
 
 ### 项目实战
 
-* [前后端分离之跨域问题](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/项目实战/前后端整合/Angular%26SpringBoot.md)
+* [Angular+SpringBoot前后端分离项目](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/项目实战/前后端整合/Angular%26SpringBoot项目实战.md)
 
 
 
