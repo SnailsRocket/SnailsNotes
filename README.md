@@ -27,7 +27,17 @@
 * [Git&SVN](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/tool/GIT%26SVN.md)
 * [MysqlWorkbench 使用bug](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/tool/mysqlworkbench.md)
 
+* [gitpull](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/tool/gitpull.md)
 
+* [markdown基本语法](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/tool/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95.md)
+
+* [mavenclean.class](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/tool/mavenclean.md)
+
+* [mavenproject红线](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/tool/mavenproject%E7%BA%A2%E7%BA%BF.md)
+
+* [mavensetting阿里云](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/tool/mavensettingaliyun.md)
+
+  
 
 ### 项目实战
 

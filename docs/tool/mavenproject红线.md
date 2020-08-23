@@ -10,7 +10,7 @@
 
 
 
-[maven更换阿里云仓库]()
+[maven更换阿里云仓库](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/tool/mavensettingaliyun.md)
 
 
 
@@ -24,7 +24,7 @@
 
 
 
-[mavenclean工具类]()
+[mavenclean工具类](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/tool/mavenclean.md)
 
 
 
