@@ -1,5 +1,5 @@
 # SnailsNotes
-## This repository is a notes about Java and C#
+## This repository is a notes about Java and middleware
 
 ### 前端框架
 
