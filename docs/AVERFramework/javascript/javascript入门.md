@@ -237,4 +237,81 @@ with(location) {
 
 
 
-305  11DOM扩展
+### 事件
+
+#### 事件流
+
+##### 事件冒泡 
+
+> div --> body --> html  --> document
+
+##### 事件处理函数
+
+> onclick  onload  
+
+
+
+#### 事件类型
+
+> UI
+>
+> 焦点事件
+>
+> 鼠标事件
+>
+> 滚轮事件
+>
+> 文本事件
+>
+> 键盘事件
+>
+> 合成事件
+>
+> 变动
+
+
+
+### 表单 form
+
+> submit() 提交
+>
+> reset()  重置	
+
+#### 表单序列化  serialize
+
+
+
+### JSON   javascript  object  notation
+
+> 只是一种序列化数据格式
+
+#### 解析json
+
+> jsoup
+>
+> JSON.parse()  解析JSON
+
+#### 序列化json
+
+> jsoup
+>
+> JSON.Stringify()  将 javascript对象序列化成JSON字符串
+
+
+
+### Ajax    核心是XMLHttpRequest (简称 XHR)
+
+> 不需要重新加载整个页面，选择性的加载部分数据，效率更高。
+>
+> 请求方式：get post put delete  head  
+
+ 
+
+
+
+### cookies  session
+
+>cookies 存储在客户端浏览器
+>
+>session  存储在server上面
+>
