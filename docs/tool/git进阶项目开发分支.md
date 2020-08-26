@@ -18,5 +18,11 @@
 
 
 
+[git分支模型](https://blog.csdn.net/hj7jay/article/details/84527062)
+
+
+
+![git项目分支](D:\gitproject\github\SnailsNotes\docs\tool\git项目开发分支V2.PNG)
+
 
 
