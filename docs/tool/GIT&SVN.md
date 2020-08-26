@@ -97,19 +97,25 @@
 
 > git branch  (branchname)  创建分支
 >
+> touch README.md 创建一个md文件
+>
 > git checkout (branchname)  切换分支
 >
 > git merge  合并分支
 >
 > git branch  列出分支
 >
-> git branch -d (branchname)
+> git branch -d (branchname)  删除分支
+>
+> git diff  查看修改内容(与上次相比，这个上次不是add之后，也不是commit，而是save文件之后)
+>
+> git status -s  查看哪些文件修改或创建
 
 
 
 ### git查案提交记录
 
-> git log
+> git log   会列出你commit的所有记录，然后按下键可以查看，推出就按wq
 
 
 
