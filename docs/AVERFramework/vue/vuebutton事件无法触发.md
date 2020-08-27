@@ -21,7 +21,7 @@ but_ajax is not defined
 
 
 
-端口绑定异常，这个异常说明就是端口已经被绑定了(后端是我之前写好的，我准备将端口改成4200，但是4200已经在运行angular)
+端口绑定异常，这个异常说明就是端口已经被绑定了(后端是我之前写好的，我准备将端口改成4200，但是4200已经在运行angular项目)
 
 ```html
 java.net.BindException: Address already in use: bind
@@ -83,6 +83,24 @@ Uncaught ReferenceError: userData is not defined
 
 
 
+#### Vue的第四个bug  钩子函数(mounted/created)
+
+> 小胖有一个想法，就是在页面加载的时候，直接发送ajax请求，然后将数据显示在table中(table 是使用的el-table ElementUI的组件)，小胖想着钩子函数也是一个method，所以想当然的把created(mounted) 放在methods里面，结果发现没有效果，这个时候小胖想肯定是钩子函数没有执行，应该是没有被浏览器识别，小胖就直接怀疑钩子函数是不是放错位置了，小胖试着将钩子函数(mounted/created)跟el、data、methods放在同一级，然后重新启动项目，效果出来了。
+
+
+
+#### Vue的第五个bug
+
+> 钩子函数发送ajax获取数据，放回到表单中，这里有一个明显的延时，数据要过将近1s才显示，出现过两次，后面基本上在200ms左右，这里因为我的element.css elementui.js以及vue.js都是在放在本地，不是去请求网络，所以速度稍微快一点。(如果面试问道怎么优化页面响应速度的话，可以说将js,css文件使用min版的，然后使用离线文件，(一般企业开发，开发阶段可能使用网络文件，但是生产环境都是使用离线文件))
+
+
+
+![Vue页面响应时间](D:\gitproject\github\SnailsNotes\docs\AVERFramework\vue\img\ElementUI&Vue页面响应时间.PNG)
+
+
+
+
+
 ### 总结
 
-> 写一个简单的vue 按钮，出现了跨域、vue与js的点击事件混用、vue中data的调用，这三个bug，你对一些基础知识的理解差很多，平常还是需要多敲，看似简单的需求，居然花了两个小时找bug，至此Vue算是彻底入门，但是后面的路还有很长。
+> 写一个简单的vue 按钮，出现了跨域、vue与js的点击事件混用、vue中data的调用，这三个bug，发现对一些基础知识的理解差很多，平常还是需要多敲，多敲确实可以快速成长，但是需要将基础的东西过一遍再去敲，去琢磨才可以事半功倍，看似简单的需求，居然花了两个小时找bug，至此Vue算是迈进了门，但是后面的路还有很长。
