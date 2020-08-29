@@ -5,8 +5,8 @@
 
 * [Angular项目模块介绍](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/AVERFramework/Angular/Angular项目模块介绍.md)
 * [Angular2常见命令](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/AVERFramework/Angular/Angular常见命令.md)
-
-* Vue
+* [javascript入门](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/AVERFramework/javascript/javascript%E5%85%A5%E9%97%A8.md)
+* [Vue](https://github.com/SnailsRocket/SnailsNotes/tree/master/docs/AVERFramework/vue)
 
 
 
@@ -43,7 +43,7 @@
 
 * [Angular+SpringBoot前后端分离项目](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/项目实战/前后端整合/Angular%26SpringBoot项目实战.md)
 
-
+* [vue button click事件无法触发](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/AVERFramework/vue/vuebutton%E4%BA%8B%E4%BB%B6%E6%97%A0%E6%B3%95%E8%A7%A6%E5%8F%91.md)
 
 
 

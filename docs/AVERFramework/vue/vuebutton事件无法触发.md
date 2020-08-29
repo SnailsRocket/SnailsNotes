@@ -79,7 +79,7 @@ Uncaught ReferenceError: userData is not defined
 
 
 
-![data定义数组异常](D:\gitproject\github\SnailsNotes\docs\AVERFramework\vue\img\data定义数组异常.PNG)
+![data定义数组异常](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/AVERFramework/vue/img/data%E5%AE%9A%E4%B9%89%E6%95%B0%E7%BB%84%E5%BC%82%E5%B8%B8.PNG)
 
 
 
