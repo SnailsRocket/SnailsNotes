@@ -16,7 +16,7 @@
 
 
 
-### [算法](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/newcoder/牛客网算法题.md)
+### [牛客网算法题解析](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/newcoder/%E7%89%9B%E5%AE%A2%E7%BD%91%E7%AE%97%E6%B3%95%E9%A2%98.md)
 
 
 
@@ -25,6 +25,7 @@
 ### Tools Guide
 
 * [Git&SVN](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/tool/GIT%26SVN.md)
+
 * [MysqlWorkbench 使用bug](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/tool/mysqlworkbench.md)
 
 * [gitpull](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/tool/gitpull.md)
@@ -36,6 +37,8 @@
 * [mavenproject红线](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/tool/mavenproject%E7%BA%A2%E7%BA%BF.md)
 
 * [mavensetting阿里云](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/tool/mavensettingaliyun.md)
+
+* [git进阶项目开发分支](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/tool/git%E8%BF%9B%E9%98%B6%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E5%88%86%E6%94%AF.md)
 
   
 
