@@ -40,6 +40,8 @@
 
 * [git进阶项目开发分支](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/tool/git%E8%BF%9B%E9%98%B6%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E5%88%86%E6%94%AF.md)
 
+* [git冲突解决](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/%E6%8A%80%E6%9C%AF%E6%A0%88/tool/git/git%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3.md)
+
   
 
 ### 项目实战
