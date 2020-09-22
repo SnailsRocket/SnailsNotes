@@ -24,6 +24,12 @@
 
 #### 登录逻辑
 
+> 前端发一个Post请求，请求体中有username password code uuid rememberMe这五个属性， 第一次登录时，会进行认证授权操作
+>
+> 1、后端AuthorizationController 接收到请求，通过RsaUtils这个工具类，对加密后的密码进行解密
+>
+> 2、通过uuid 去redis 里面取验证码的信息，这个是页面刷新的时候存入redis的，如果登录界面刷新十次，redis会存10个验证码，过期时间设置为2分钟
+
 
 
 
