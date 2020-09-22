@@ -1,3 +1,5 @@
+
+
 ## eladmin
 
 ### 登录模块
@@ -43,6 +45,117 @@
 
 
 ### redis
+
+
+
+
+
+### 自定义注解
+
+```java
+@Target(value = {ElementType.METHOD}) //该注解的位置应该在方法定义上方
+@Retention(RententionPolicy.RUNTIME) //限定注解的生命周期，详解看注解的生命周期
+@Documented
+@Inherited
+```
+
+注解可以给属性设置默认值
+
+```java
+@Retention(RetentionPolicy.RUNTIME)
+@Target(value = {ElementType.METHOD})
+@Documented
+public @interface CherryAnnotation {
+    String name();
+    int age() default 18;
+    int[] score();
+}
+```
+
+```java
+@AnonymousAccess
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@RequestMapping(method = RequestMethod.GET)
+public @interface AnonymousGetMapping {
+
+    /**
+     * Alias for {@link RequestMapping#name}.
+     */
+    @AliasFor(annotation = RequestMapping.class)
+    String name() default "";
+
+    /**
+     * Alias for {@link RequestMapping#value}.
+     */
+    @AliasFor(annotation = RequestMapping.class)
+    String[] value() default {};
+
+    /**
+     * Alias for {@link RequestMapping#path}.
+     */
+    @AliasFor(annotation = RequestMapping.class)
+    String[] path() default {};
+
+    /**
+     * Alias for {@link RequestMapping#params}.
+     */
+    @AliasFor(annotation = RequestMapping.class)
+    String[] params() default {};
+
+    /**
+     * Alias for {@link RequestMapping#headers}.
+     */
+    @AliasFor(annotation = RequestMapping.class)
+    String[] headers() default {};
+
+    /**
+     * Alias for {@link RequestMapping#consumes}.
+     *
+     * @since 4.3.5
+     */
+    @AliasFor(annotation = RequestMapping.class)
+    String[] consumes() default {};
+
+    /**
+     * Alias for {@link RequestMapping#produces}.
+     */
+    @AliasFor(annotation = RequestMapping.class)
+    String[] produces() default {};
+
+}
+```
+
+
+
+[CSDN自定义注解](https://blog.csdn.net/xsp_happyboy/article/details/80987484)
+
+自定义注解步骤
+
+1、自定义注解类 Annotation 类型的
+
+2、处理注解的工具类
+
+3、后面还需要一个注解处理器类  利用反射解析注解
+
+
+
+#### 注解的生命周期
+
+> 1.Java源文件阶段
+>
+> 2.编译到class文件阶段
+>
+> 3.运行期阶段
+
+1.如果一个注解RetentionPolicy.SOURCE ，则它将被限定在Java源文件中，那么这个注解不会参加编译，也不会再运行期起任何作用，只能被阅读Java文件的人看见，eg:@Override
+
+2.如果一个注解被定义为RetentionPolicy.CLASS，则它将被编译到Class文件中，那么编译器可以在编译时根据注解做一些处理动作，但是运行时JVM（Java虚拟机）会忽略它，我们在运行期也不能读取到
+
+3.如果一个注解被定义为RetentionPolicy.RUNTIME，那么这个注解可以在运行期的加载阶段被加载到Class对象中。那么在程序运行阶段，我们可以通过反射得到这个注解，并通过判断是否有这个注解或这个注解中属性的值，从而执行不同的程序代码段。**我们实际开发中的自定义注解几乎都是使用的RetentionPolicy.RUNTIME**
+
+4.在默认的情况下，自定义注解是使用的RetentionPolicy.CLASS
 
 
 
