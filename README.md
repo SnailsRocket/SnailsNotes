@@ -49,8 +49,9 @@
 ### 项目实战
 
 * [Angular+SpringBoot前后端分离项目](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/项目实战/前后端整合/Angular%26SpringBoot项目实战.md)
-
 * [vue button click事件无法触发](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/AVERFramework/vue/vuebutton%E4%BA%8B%E4%BB%B6%E6%97%A0%E6%B3%95%E8%A7%A6%E5%8F%91.md)
+* [eladminNotes](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/%E5%90%8E%E7%AB%AF%E9%A1%B9%E7%9B%AE/eladmin.md)
+* [自定义注解](https://github.com/SnailsRocket/SnailsNotes/blob/master/docs/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/%E5%90%8E%E7%AB%AF%E9%A1%B9%E7%9B%AE/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3.md)
 
 
 
