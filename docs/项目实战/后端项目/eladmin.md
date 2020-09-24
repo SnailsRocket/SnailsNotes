@@ -10,7 +10,7 @@
 >
 > 1.首先，刷新页面，或者点击验证码图片(这个地方需要限流，同一个ip10s内，只能刷新10次，如果次数不正常就拉黑ip，防止恶意攻击)
 >
-> 2.然后后台AuthorizationController的getCode接收到获取验证码的请求，然后获取验证码生产类LoginProperties.getCaptcha，依据配置信息生产验证码，返回一个Captcha对象(这个对象是easy-captcha 这个jar包提供的，源码放在gitee上面)；
+> 2.然后后台AuthorizationController的getCode接收到获取验证码的请求，然后获取验证码生产类LoginProperties.getCaptcha，依据配置信息生产验证码，返回一个Captcha对象(这个对象是easy-captcha 这个jar包提供的，源码放在gitee上面)(SpringBoot项目启动的时候，Spring容器初始化，配置类以及里面的Bean都会被注入到容器里面)；
 >
 > 3.生成uuid，作为redis的key，Captcha的text 作为Redis的value(这个text 就是计算出来的结果)
 >
@@ -19,6 +19,14 @@
 > 4.将验证码的信息的图片Captcha对象使用Base64加密后作为value，key= img放入map里面去，uuid也放入map里面，然后前端直接将加密后的数据填入<img src="Captcha.toBase64()"> ，显示验证码
 >
 > 5.返回一个ResponseEntity对象(这个Spring Web jar包提供的)(以前都是自己定义的返回对象)
+
+
+
+![eladmin boot](D:\gitproject\github\SnailsNotes\docs\项目实战\后端项目\eladminboot.PNG)
+
+
+
+
 
 
 
@@ -38,7 +46,7 @@
 >
 > 1、后端AuthorizationController 接收到请求，通过RsaUtils这个工具类，对加密后的密码进行解密
 >
-> 2、通过uuid 去redis 里面取验证码的信息，这个是页面刷新的时候存入redis的，如果登录界面刷新十次，redis会存10个验证码，过期时间设置为2分钟
+> 2、通过uuid 去redis 里面取验证码的信息，这个是页面刷新的时候存入redis的，如果登录界面刷新十次，redis会存10个验证码，过期时间设置为2分钟(这个设置也是在配置文件里面设置的)
 
 
 
