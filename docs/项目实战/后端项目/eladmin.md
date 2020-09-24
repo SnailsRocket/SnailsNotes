@@ -10,7 +10,7 @@
 >
 > 1.首先，刷新页面，或者点击验证码图片(这个地方需要限流，同一个ip10s内，只能刷新10次，如果次数不正常就拉黑ip，防止恶意攻击)
 >
-> 2.然后后台AuthorizationController的getCode接收到获取验证码的请求，然后获取验证码生产类LoginProperties.getCaptcha，依据配置信息生产验证码，返回一个Captcha对象(这个对象是easy-captcha 这个jar包提供的，源码放在gitee上面)(SpringBoot项目启动的时候，Spring容器初始化，配置类以及里面的Bean都会被注入到容器里面)；
+> 2.然后后台AuthorizationController的getCode接收到获取验证码的请求，然后获取验证码生产类LoginProperties.getCaptcha，依据配置信息生产验证码，返回一个Captcha对象(这个对象是easy-captcha 这个jar包提供的，源码放在gitee上面)(SpringBoot项目启动的时候，Spring容器初始化，配置类以及里面的Bean都会被注入到容器里面如下图)(这个是一个常识，就是启动项目后，Config类)；
 >
 > 3.生成uuid，作为redis的key，Captcha的text 作为Redis的value(这个text 就是计算出来的结果)
 >
@@ -37,6 +37,10 @@
 解疑：
 
 > 在ConfigBeanConfiguration这个配置类里面初始化了LoginProperties、SecurityProperties这两个实体类，并且使用@ConfigurationProperties这个注解将application-dev.yml配置文件中 login jwt 的一些信息，引入到实体类里面去，然后又来了下一个疑问，这个ConfigBeanConfiguration配置类又是怎么触发的？
+>
+> [这个ConfigBeanConfiguration配置类又是怎么触发的？]
+>
+> 在项目启动的时候，就会初始化Spring容器，此时会把所有的用@Configuration  @Bean 修饰的类注入到Spring容器里面去。(基本特性全忘了)
 
 
 
