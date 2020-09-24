@@ -12,13 +12,23 @@
 >
 > 2.然后后台AuthorizationController的getCode接收到获取验证码的请求，然后获取验证码生产类LoginProperties.getCaptcha，依据配置信息生产验证码，返回一个Captcha对象(这个对象是easy-captcha 这个jar包提供的，源码放在gitee上面)；
 >
-> 3.生成uuid，作为redis的key，Captcha的text 作为Redis的value
+> 3.生成uuid，作为redis的key，Captcha的text 作为Redis的value(这个text 就是计算出来的结果)
 >
-> 并设置过期时间
+> 并设置过期时间 为 2分钟
 >
-> 4.将验证码的信息的图片Captcha对象使用Base64加密后作为value，key= img放入map里面去，uuid也放入map里面
+> 4.将验证码的信息的图片Captcha对象使用Base64加密后作为value，key= img放入map里面去，uuid也放入map里面，然后前端直接将加密后的数据填入<img src="Captcha.toBase64()"> ，显示验证码
 >
 > 5.返回一个ResponseEntity对象(这个Spring Web jar包提供的)(以前都是自己定义的返回对象)
+
+
+
+##### 疑惑
+
+1.[解决]LoginProperties、SecurityProperties这两个个类为什么在生成验证码的时候就存在了，是不是之前有设置拦截(使用AOP)
+
+解疑：
+
+> 在ConfigBeanConfiguration这个配置类里面初始化了LoginProperties、SecurityProperties这两个实体类，并且使用@ConfigurationProperties这个注解将application-dev.yml配置文件中 login jwt 的一些信息，引入到实体类里面去，然后又来了下一个疑问，这个ConfigBeanConfiguration配置类又是怎么触发的？
 
 
 
