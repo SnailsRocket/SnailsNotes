@@ -193,6 +193,52 @@ public @interface AnonymousGetMapping {
 
 
 
+### 实体类
+
+#### Entity
+
+> 基本上属性跟数据库字段一样
+
+
+
+#### bo  Business object
+
+> 业务对象，bo就是把业务逻辑封装成一个对象，这个bo对象里的属性，可能会设计到多个Entity
+
+
+
+#### VO   View Object
+
+> 
+
+
+
+#### PO  persistent object
+
+> 持久层对象 数据库表在java对象中的显示，最形象的理解就是一个 po对应 一条数据表的一行
+
+
+
+#### DTO
+
+> 代表数据传输对象，用来封装对数据的访问，注意是数据的访问，不是数据库的访问。
+
+
+
+
+
+#### DAO
+
+> 数据访问对象
+
+
+
+
+
+
+
+
+
 
 
 ### 关于 重构的一些想法
