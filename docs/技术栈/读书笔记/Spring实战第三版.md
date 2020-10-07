@@ -74,6 +74,41 @@ BeanFactory、Application(基于BeanFactory构建)
 
 传统的Java应用，Bean的生命周期很简单，需要使用的时候直接Java关键字 new进行Bean的实例化，然后该Bean就可以被使用了，当该Bean不再被使用的时候，则由Java 自动内存回收机制(JVM)，对该Bean进行回收。
 
+#### Bean的初始化与销毁
+
+```xml
+<bean init-method="bean初始化执行的method"/>
+<bean destory-method="指定bean从容器移除之前执行需要调用的方法">
+```
+
+
+
+
+
+### Bean的注入 两种方式
+
+> 构造器注入Bean  <bean> <constructor-arg ref=""/></bean>
+>
+> 通过工厂方法创建Bean   <bean factory-method="getInstance" scope="prototype"/>
+>
+> setter注入
+
+
+
+#### socpe Bean 的作用域
+
+> prototype   允许Bean的定义可以被实例化任意次(每次调用都会创建一个实例)
+>
+> singleto     在Spring容器中，一个Bean定义只允许创建一个实例
+>
+> request	在一个Http请求中，每个Bean定义只能创建一个实例，该作用域仅在Spring 上下文中有效
+>
+> session	在一次 HTTP session 中一个Bean定义只能创建一个Bean
+>
+> global-session	在一个全局HTTP session 中，每个Bean定义对应一个实例
+
+
+
 
 
 #### Spring Bean生命周期  p18
@@ -106,7 +141,7 @@ BeanFactory、Application(基于BeanFactory构建)
 >
 > JMS  	 Java Message Server
 >
-> OXM
+> OXM	Java对象 映射到 xml文件
 
 
 
@@ -157,6 +192,8 @@ BeanFactory、Application(基于BeanFactory构建)
 > Test		测试
 
 
+
+### Spring 是使用反射来创建对象的
 
 
 
