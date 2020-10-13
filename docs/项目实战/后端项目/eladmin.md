@@ -26,6 +26,16 @@
 
 
 
+#### 验证码 存储 到redis 
+
+> Spring 集成了 redis 模块 ，Spring-data-redis 提供缓存功能，
+
+
+
+**这个里面有个坑，就是如果不配置序列化器,往redis里面存String类型的数据，会存成Sorted Set，而且key会乱码，往redis里面存取都需要先将String、Object 类型的数据序列化成 byte[] 类型的字节码，反序列化也是需要将字节码转换成String、Object**
+
+
+
 
 
 

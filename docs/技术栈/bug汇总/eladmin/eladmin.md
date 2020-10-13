@@ -27,7 +27,15 @@ Consider defining a bean of type 'com.xubo.modules.system.service.DeptService' i
 
 
 
-### 将验证码存入redis里面
+### 将验证码存入redis里面  
+
+#### 自定义一个RedisConfig
+
+> 自定义一个RedisConfig 配置类
+>
+> 重写序列化器 StringRedisSerializer/FastJsonRedisSerializer  implements  RedisSerializer<T> 接口
+>
+> 
 
 **key为uuid，value为captchaValue，过期时间为两分钟**
 
@@ -47,3 +55,28 @@ Consider defining a bean of type 'com.xubo.modules.system.service.DeptService' i
 public boolean set(String key, Object value, long time, TimeUnit timeUnit) 
 ```
 
+**排查Bug**
+
+
+
+##### 问题2 解决方案
+
+> 重新看了一下eladmin的整个模块，发现在eladmin-common 里面有配置StringRedisSerializer 重写了redis String类型的序列化器
+
+
+
+### Object  byte[]  互转
+
+Object 转 byte[]
+
+> 使用阿里巴巴的 FastJson Stringstring =   JSON.toJSONString(Object) 
+>
+>然后将'\' 换成 ''
+>
+>最后 byte[] bytes =   string.getBytes("UTF-8");
+
+
+
+byte[] 转成 Object
+
+> (bytes == null) ? null : new String(bytes,StandardCharsets.UTF-8)
