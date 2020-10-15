@@ -309,3 +309,31 @@ Spring切面可以应用的5种类型的通知
 > after-returning
 >
 > after-throwing
+
+
+
+#### AspectJ 切点表达式
+
+```java
+execution (* com.springinaction.springidol.Instrument.play(..))
+```
+
+Spring AOP 配置元素简化了基于 POJO切面的声明
+
+```java
+<aop:advisor>  定义AOP通知
+<aop:after>	定义AOP后置通知
+<aop:after-returning>	定义AOP after-returning 通知
+<aop:after-throwing>    定义after-throwing 通知
+<aop:around>    定义环绕通知
+<aop:aspect>    定义切面
+<aop:aspect-autoproxy>	启用 @AspectJ注解驱动的切面	
+<aop:before>	定义AOP前置通知	
+<aop:config>	顶层的AOP配置元素
+<aop:declare-parents>	为被通知的对象引入额外的接口，并透明的实现
+<aop:pointcut>    定义切点
+```
+
+
+
+@Around  标注在方法上面，作为环绕通知
