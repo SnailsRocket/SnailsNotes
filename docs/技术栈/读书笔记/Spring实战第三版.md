@@ -205,3 +205,49 @@ BeanFactory、Application(基于BeanFactory构建)
 
 ## Day02
 
+#### SpEL表达式
+
+
+
+#### Bean的自动装配  Autowiring
+
+自动装配 将Spring容器里面的Bean实例 装配到指定的 Bean里面(Controller里面装配 service、Service装配 DAO，替换掉之前的new 创建对象，大大降低了代码的耦合，将class当做bean放入Spring容器里面，在项目里面的任意一个class 都可以使用@Autowired 注入Bean到指定的class里面)
+
+
+
+##### 四种装配方式
+
+> byName： 把与Bean的属性具有相同名字(id)的其他Bean自动装配到Bean的对应属性中。如果没有跟属性的名字相匹配的Bean，则不进行装配
+>
+> byType：把与Bean的的属性具有相同类型的Bean自动装配到对应的属性中，如果没有就不装配
+>
+> constructor：把与Bean的构造器入参具有相同类型的其他Bean装配到Bean构造器的入参中
+>
+> autodetect：首先尝试使用constructor进行自动装配，如果失败，再尝试byType
+
+
+
+**使用@Autowired注入 Bean的时候，如果Bean不存在或者有多个的时候，会抛出NoSuchBeanDefinitionException异常**
+
+@Qualifier 配合 @Autowired 使用就可以在多个Bean中指定使用哪个Bean
+
+```java
+@Autowired
+@Qualifier(DruidImpl1)  // 往Controller 里面注入 DruidImple1 这个Bean
+DruidService druidService;
+
+public class DruidImpl1 implements DruidService {}
+
+public class DruidImpl2 implements DruidService {}
+
+public interface DruidService {}
+```
+
+
+
+
+
+#### Bean的发现 AutoDisover
+
+
+
