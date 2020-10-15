@@ -245,9 +245,67 @@ public interface DruidService {}
 
 
 
-
-
 #### Bean的发现 AutoDisover
 
 
 
+```xml
+<context:annotation-config>
+    配置Bean
+</context:annotation-config>
+
+<context:component-scan base-package="">
+    自动检测Bean和定义Bean
+    <context:include-filter type="" expression="">
+        定义要扫描策略
+    </context:include-filter>
+</context:component-scan>
+注解开发 
+@ComponentScan
+
+// 下面两个注解都是用在Dao层
+@Mapper // 不需要配置扫描地址,这个是通过xml里面的namespace地址，生成对应的Bean，然后注入到容器中
+@Repository // 需要扫描地址，扫描Dao层，并生成相应的Bean，注入Spring容器，然后容器中才能有这个Bean
+```
+
+
+
+#### @Configuration  配置类
+
+> 可以在配置类中定义Bean，然后每次项目启动的时候，会自动加载被Configuration标准的类，然后将该类中使用@Bean 标注的class(这个class，在其他目录下定义了，然后在配置类中new出来，并放入Spring容器里面)
+
+class 不等于 Bean(Bean 的最早的概念是在EJB 中提出来的)
+
+
+
+### 面向切面编程 AOP
+
+**在一个系统里面，有一些模块是公共的，像认证授权、日志、事务管理、缓存**
+
+
+
+术语
+
+> 通知 advise
+>
+> 连接点 join point
+>
+> 切点 pointcut
+>
+> 切面  Aspect 	 通知和切点的结合
+>
+> 织入  weaving 将切面应用到目标对象来创建新的代理对象的过程
+
+
+
+Spring切面可以应用的5种类型的通知
+
+> before 
+>
+> after
+>
+> around
+>
+> after-returning
+>
+> after-throwing
