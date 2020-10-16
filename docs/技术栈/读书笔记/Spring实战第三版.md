@@ -352,7 +352,7 @@ Spring AOP 配置元素简化了基于 POJO切面的声明
 
 #### lazy loading  延迟加载  
 
-
+只抓取需要的数据
 
 > 像我们需要查询一组 Department 对象的数据，Department对象里面有一个EmployeeList  数据集，我们只关心Department属性，查询每个Department对象中EmployeeList 可能会很耗时，所以暂时不执行，等待需要用的时候再去查(就像电商项目中的商品展示一样，一般只展示商品的亮点信息，详细信息需要点击去才能查看的到)。
 
@@ -412,6 +412,18 @@ Spring AOP 配置元素简化了基于 POJO切面的声明
 
 
 
+> read-uncommitted  允许读取未提交的数据，可能会导致脏读、幻读、不可重复读
+>
+> read-committed	允许读取并发事务已提交的数据、可以阻止脏读
+>
+> repeatable-read	对同意字段的多次读取结果是一致的，除非数据是被本事务自己所修改，可以阻止脏读、不可重复读，幻读还是有可能发生
+>
+> serializable 完全服从ACID的隔离界别，完全锁定事务相关的数据库表来实现
+
+Mysql 默认是 read-committed
+
+
+
 **并发会导致下列问题**
 
 > 脏读 事务a 读取到事务b 修改未提交的数据
@@ -420,3 +432,34 @@ Spring AOP 配置元素简化了基于 POJO切面的声明
 >
 > 幻读	与不可重复读类似，事务a读取了几行数据，另一个并发事务b插入了一些数据，在之后的查询中事务a查到一些原本不存在的数据
 
+
+
+#### 事务超时
+
+> 为了使应用程序很好的运行，事务不能执行太长时间，因为事务是对后端数据库进行锁定，可能是一部分数据，可能是整张表。如果事务执行的时间很长，那么其他 线程都在等待状态，整个应用响应的速度大大的降低(这里就是不使用事务的最高隔离级别Serializable)，一般过了事务超时时间就直接回滚事务。
+
+
+
+### SpringMVC
+
+##### SpringMVC执行流程
+
+> 1, 前端发出请求 URL
+>
+> 2.请求到DispatcherServlet (前端控制器)
+>
+> 3.前端控制器收到请求之后，转到 Handler Mapper(处理器映射) 并返回 Chain(执行链)到DispatcherServlet
+>
+> 4.然后Chain被发送 到 Handler Adaptor (处理器适配器)，并有适配器分发到每个Handler上面
+>
+> 5.handler 执行分发过来的认为，并返回ModelAndView
+>
+> 6.DispatcherServlet收到ModelAndView 之后，将它转给ViewResolver(视图处理器),并返回 View 给DispatcherServlet，
+>
+> 7.然后DispatcherServlet将View 渲染成 jsp 、thymeleaf、freemark并返回给前端界面
+
+
+
+**SpringMVC 基于Model View Controller模型实现的**
+
+**DispatcherServlet 的任务是把url请求发送到Controller 上，良好的控制器一般不处理业务逻辑，都是将业逻辑丢给拖给service去处理**
