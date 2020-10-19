@@ -463,3 +463,79 @@ Mysql 默认是 read-committed
 **SpringMVC 基于Model View Controller模型实现的**
 
 **DispatcherServlet 的任务是把url请求发送到Controller 上，良好的控制器一般不处理业务逻辑，都是将业逻辑丢给拖给service去处理**
+
+
+
+### SpringSecurity
+
+基于Spring AOP 和 Servlet 过滤器实现的安全框架
+
+
+
+#### SpringSecurity 支持 SpEL 表达式
+
+> authentication
+>
+> denyAll
+>
+> hasAnyRole
+>
+> hasRole
+>
+> hasIpAddress
+>
+> isAnonymous
+>
+> isAuthenticated
+>
+> isFullyAuthenticated
+>
+> isRememberMe
+>
+> permitAll
+>
+> principal
+
+
+
+#### RPC  remote produre Call
+
+REST (Representational State Transfer)  是面向资源的
+
+RPC 是面向服务的，并且关注于行为和动作
+
+REST 是基于 SpringMVC的 
+
+**4个主要的REST方法:get、post、delete、put**当然还有三个不常见的option、head、trace
+
+**每个HTTP方法具有两个特性：安全性和幂等性，如果一个方法不改变资源的状态就认为它是安全的。幂等的方法可能改变状态可能不改变状态，但是一次请求和多次请求具有相同的作用，按照规定所有安全的方法都必须是幂等的，但是幂等的方法不一定是安全的**
+
+对HttpClient 的封装 RestTemplate(Spring 框架提供的)
+
+HiddenHttpMethodFilder 放在 DispatchServlet  之前，对后台进行访问的URL进行针对性的过滤
+
+
+
+### JMS  java message service
+
+**JMS相比于同步通信，他没有等待，减低代码之间的耦合，提升框架的可扩展性**
+
+**基于JMS实现的消息中间件有 ActiveMQ**
+
+**还有RabbitMQ、RocketMQ、kafka**
+
+#### 点对点消息模型
+
+> 每一个消息都有一个发送者和接受者
+
+
+
+#### 发布/订阅消息模型
+
+> 有一个发布者发送消息，其他多个(也可以是单个)服务监听这个消息队列，当有消息时，就取出来消费掉
+
+
+
+#### Spring 对 JMS 的支持
+
+JmsTemplate
