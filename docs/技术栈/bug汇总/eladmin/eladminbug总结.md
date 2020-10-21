@@ -80,3 +80,14 @@ Object 转 byte[]
 byte[] 转成 Object
 
 > (bytes == null) ? null : new String(bytes,StandardCharsets.UTF-8)
+
+
+
+### SpringSecurity 登录失败
+
+**异常信息**
+
+> 前端异常：(后端逻辑还没跑完，前端就弹出来了)当前登录信息已过期，请重新登录
+>
+> 后端异常 ： debug 到  onlineService.save  这个地方 catch 到 InvocationTargetException
+
