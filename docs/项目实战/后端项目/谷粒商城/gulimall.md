@@ -9,3 +9,17 @@
 > 然后 docker pull mysql/redis/mongo.rabbitmq
 >
 > 远程连接这个容器。
+
+
+
+### 版本冲突问题
+
+https://blog.csdn.net/Ajax_mt/article/details/79152581
+
+> mybatis-plus 版本是 3.3.1   
+
+直接原因 不能实现bean初始化
+
+间接原因 版本冲突
+
+降低mybatis-plus的版本
