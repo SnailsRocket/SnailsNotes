@@ -36,10 +36,6 @@
 
 
 
-
-
-
-
 ##### 疑惑
 
 1.[解决]LoginProperties、SecurityProperties这两个个类为什么在生成验证码的时候就存在了，是不是之前有设置拦截(使用AOP)
@@ -58,9 +54,27 @@
 
 > 前端发一个Post请求，请求体中有username password code uuid rememberMe这五个属性， 第一次登录时，会进行认证授权操作
 >
-> 1、后端AuthorizationController 接收到请求，通过RsaUtils这个工具类，对加密后的密码进行解密
+> 1、后端AuthorizationController 接收到请求，通过RsaUtils这个工具类，对在前端加密的密码进行解密
 >
-> 2、通过uuid 去redis 里面取验证码的信息，这个是页面刷新的时候存入redis的，如果登录界面刷新十次，redis会存10个验证码，过期时间设置为2分钟(这个设置也是在配置文件里面设置的)
+> 2、通过uuid 去redis 里面取验证码的信息，这个是获取验证码(页面刷新)的时候存入redis的，如果登录界面刷新十次，redis会存10个验证码，过期时间设置为2分钟(这个设置也是在配置文件里面设置的)
+>
+> 3、验证验证码是否过期，或者前端传送过来的与redis中是否一致
+>
+> 4、将username和password 封装到UsernamePasswordAuthenticationToken 类里面
+>
+> 5、使用authenticationManagerBuilder 获取到 Authentication这个类
+>
+> 6、将authentication 放入 SecurityContextHolder
+>
+> 7、tokenProvider创建 token
+>
+> 8、authentication 获取 jwtUserDto
+>
+> 9、调用onlineUserService 将用户的信息save到redis
+>
+> 10、创建map封装返回值 properties 、jwtUserDto
+>
+> 11、踢掉之前已经登录的token
 
 有一个有意思的现象，如果你每天在CSDN里面活跃，你可以连续一个月不用登录，这个是怎么实现的，如果你连续三天不活跃，就删除redis里面的token信息(Redis 必须弄集群)
 
