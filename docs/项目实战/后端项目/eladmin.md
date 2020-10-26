@@ -2,7 +2,7 @@
 
 ## eladmin
 
-### 登录模块
+### 登录模块   AuthorizationController
 
 #### 验证码逻辑
 
@@ -76,9 +76,11 @@
 >
 > 11、踢掉之前已经登录的token
 
+
+
 有一个有意思的现象，如果你每天在CSDN里面活跃，你可以连续一个月不用登录，这个是怎么实现的，如果你连续三天不活跃，就删除redis里面的token信息(Redis 必须弄集群)
 
-
+**CSDN的登录信息是存在cookies里面的，每次登录获取浏览器的cookies，但是如果用户的cookies被黑客窃取了，那么可以模拟用户登录**
 
 
 
@@ -93,6 +95,10 @@
 > 
 
 
+
+### 在线用户模块  OnlineController
+
+**这个模块的实现页面是系统监控模块下在线用户页面，在用户登录的逻辑中，会调用onlineUserService将jwtUserDto、token、request存入redis里面(过期时间为2小时)，在用户点退出登录或者在在线用户界面点击强退，都会删除redis里面的onlineUser的信息**
 
 
 
