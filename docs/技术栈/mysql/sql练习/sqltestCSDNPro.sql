@@ -386,33 +386,60 @@ order by
 -- 18.查询各科成绩最高分、最低分和平均分：以如下形式显示：课程ID，课程name，
 -- 最高分，最低分，平均分，及格率，中等率，优良率，优秀率
 -- 及格为>=60，中等为：70-80，优良为：80-90，优秀为：>=90
--- 分析：有点存储过程的感觉
-select sc.c_id,c.c_name,max(sc.s_score) as 最高分,min() as 最低分,avg() as 平均分
+-- 分析：有点存储过程的感觉,这个是比较复杂的，涉及到score 和 course这两张表
+select 
+	c.c_id,c.c_name,max(sc.s_score) as max_score ,min(sc.s_score) as min_score,avg(sc.s_score) as avg_score
 from score sc
-left join course c
+join course c
 on sc.c_id = c.c_id
+group by sc.c_id;
+-- 上面这条语句没有写及格率(这个一般可以放到后端去处理)
+select 
+	c.c_id,c.c_name,max(sc.s_score) as max_score ,min(sc.s_score) as min_score,avg(sc.s_score) as avg_score
+from score sc
+join course c
+on sc.c_id = c.c_id
+group by sc.c_id;
 
 
 -- 19、按各科成绩进行排序，并显示排名
 
+
 -- 20、查询学生的总成绩并进行排名
+select s.*,sum(sc.s_score) as sums
+from student s
+join score sc
+on s.s_id = sc.s_id
+group by s.s_id
+order by sums DESC;
 
 	
 -- 21、查询不同老师所教不同课程平均分从高到低显示 
 
+
 -- 22、查询所有课程的成绩第2名到第3名的学生信息及该课程成绩
+
 
 -- 23、统计各科成绩各分数段人数：课程编号,课程名称,[100-85],[85-70],[70-60],[0-60]及所占百分比
 
+
 -- 24、查询学生平均成绩及其名次 
+
 
 -- 25、查询各科成绩前三名的记录
 			-- 1.选出b表比a表成绩大的所有组
 			-- 2.选出比当前id成绩大的 小于三个的
             
 -- 26、查询每门课程被选修的学生数
+select c_id,count(s_id) from score group by c_id;
 
 -- 27、查询出只有两门课程的全部学生的学号和姓名
+select s.*,count(sc.c_id) as count_course
+from student s
+join score sc
+on s.s_id = sc.s_id
+group by s.s_id
+having count(sc.c_id) = 2;
 
 -- 28、查询男生、女生人数 
 
