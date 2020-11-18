@@ -442,50 +442,145 @@ group by s.s_id
 having count(sc.c_id) = 2;
 
 -- 28、查询男生、女生人数 
+select s_sex,count(s_sex) as 人数 from student group by s_sex;
 
 -- 29、查询名字中含有"风"字的学生信息
+select * from student where s_name like "%风%";
 
 -- 30、查询同名同性学生名单，并统计同名人数
+select s.s_name,s.s_sex,count(*) as 人数
+from student s
+join student s1
+on s.s_name = s1.s_name and s.s_id != s1.s_id and s.s_sex = s1.s_sex
+group by s.s_name,s.s_sex;
+
 
 -- 31、查询1990年出生的学生名单
+-- 分析： 判断年龄不要一用模糊上来就比较大小，先看一下存储的类型是什么，这边是字符串，所以用模糊查询
+select s.* from student s where s.s_birth like "1990%";
 
 -- 32、查询每门课程的平均成绩，结果按平均成绩降序排列，平均成绩相同时，按课程编号升序排列 
+-- 分析：desc 是降序 
+select c_id,avg(sc.s_score) as avg_score
+from score sc
+group by sc.c_id
+order by avg_score desc,c_id asc;
+
 
 -- 33、查询平均成绩大于等于85的所有学生的学号、姓名和平均成绩 
+select s.s_id,s.s_name,avg(sc.s_score) as avg_score
+from student s
+left join score sc
+on s.s_id = sc.s_id
+group by s.s_id
+having avg_score >= 85;
 
--- 34、查询课程名称为"数学"，且分数低于60的学生姓名和分数 
+
+-- 34、查询课程名称为"数学"，且分数低于60的学生姓名和分数
+select s.s_name,c.c_name,sc.c_id,sc.s_score
+from student s
+join score sc
+on s.s_id = sc.s_id
+join course c
+on sc.c_id = c.c_id
+where sc.s_score <= 60 and c.c_name = '数学';
+
 
 -- 35、查询所有学生的课程及分数情况； 
+-- 分析： 学生的 每门课程，总分，并以总分倒序排列
+-- note case when then else end  的用法是找出c_name=xx de s_score 这个涉及到两张表
+select s.s_id,s.s_name,
+	sum(case c.c_name when '语文' then sc.s_score else 0 end) as 语文,
+    sum(case c.c_name when '数学' then sc.s_score else 0 end) as 数学,
+    sum(case c.c_name when '英语' then sc.s_score else 0 end) as 英语,
+    sum(sc.s_score) as 总分
+from student s left join score sc on s.s_id = sc.s_id
+left join course c on sc.c_id = c.c_id
+group by s.s_id,s.s_name;
+
 
 -- 36、查询任何一门课程成绩在70分以上的姓名、课程名称和分数； 
+select s.s_name,c.c_name,sc.s_score
+from student s
+join score sc on s.s_id = sc.s_id
+join course c on c.c_id = sc.c_id
+where sc.s_score >= 70;
+
 
 -- 37、查询不及格的课程
+select sc.c_id,c.c_name,sc.s_score
+from score sc 
+join course c on sc.c_id = c.c_id
+where sc.s_score < 60;
+
 
 -- 38、查询课程编号为01且课程成绩在80分以上的学生的学号和姓名；
+select s.s_id,s.s_name,sc.c_id,sc.s_score
+from student s
+join score sc on s.s_id = sc.s_id
+where sc.c_id = 1 and sc.s_score >= 80;
+
 
 -- 39、求每门课程的学生人数
+select sc.c_id,count(sc.s_id) as 人数
+from score sc
+group by sc.c_id;
 
 -- 40、查询选修"张三"老师所授课程的学生中，成绩最高的学生信息及其成绩
+-- 分析：先找出这门课成绩最高的学生id，饭后再反过来查询其成绩
+select * from teacher where t_name = '张三'; -- t_id 1
+select * from course where t_id = 1; -- c_id 2
+select s.s_id,s.s_name,sc.s_score,c_name
+from student s
+join score sc on s.s_id = sc.s_id
+join course c on sc.c_id = c.c_id
+where sc.c_id = (select c_id from course c,teacher t where c.t_id = t.t_id and t_name = '张三')
+and sc.s_score in (select max(s_score) from score where c_id=2);
+
 
 -- 41、查询不同课程成绩相同的学生的学生编号、课程编号、学生成绩 
+-- 分析：
+select distinct sc.s_id,sc.c_id,sc.s_score
+from score sc,score sc1
+where sc.s_score = sc1.s_score and sc.s_id != sc1.s_id;
 
--- 42、查询每门功成绩最好的前两名 
 
--- 43、统计每门课程的学生选修人数（超过5人的课程才统计）。要求输出课程号和选修人数，查询结果按人数降序排列，若人数相同，按课程号升序排列
+-- 42、查询每门课成绩最好的前两名 
+
+
+
+-- 43、统计每门课程的学生选修人数（超过5人的课程才统计）。
+-- 要求输出课程号和选修人数，查询结果按人数降序排列，若人数相同，按课程号升序排列
+-- 分析：查找选修课程人数，筛选出超过5的
+select sc.c_id,count(sc.s_id) as 人数
+from score sc
+group by sc.c_id desc
+having 人数 > 5;
+-- 有bug
+
 
 -- 44、检索至少选修两门课程的学生学号
 
+
 -- 45、查询选修了全部课程的学生信
+select s.*,count(sc.c_id) from student s
+join score sc on s.s_id = sc.s_id
+group by sc.s_id
+having count(sc.c_id) = (select count(c_id) from course);
+
 
 -- 46、查询各学生的年龄
 	-- 按照出生日期来算，当前月日 < 出生年月的月日则，年龄减一
+    
 
 -- 47、查询本周过生日的学生
+
 
 -- 48、查询下周过生日的学生
 
 
 -- 49、查询本月过生日的学生
+
 
 -- 50、查询下月过生日的学生
 
