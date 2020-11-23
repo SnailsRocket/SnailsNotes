@@ -21,3 +21,7 @@ $().ready(function)
 $(function)
 ```
 
+
+
+### $ 定义 jQuery
+
