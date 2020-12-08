@@ -22,7 +22,7 @@
 
 
 
-![eladmin boot](D:\gitproject\github\SnailsNotes\docs\项目实战\后端项目\eladminboot.PNG)
+![](D:\gitproject\github\SnailsNotes\docs\项目实战\后端项目\eladmin\eladminboot.PNG))
 
 
 
@@ -241,7 +241,7 @@ public @interface AnonymousGetMapping {
 
 #### VO   View Object
 
-> 
+> 前端界面需要的对象
 
 
 
