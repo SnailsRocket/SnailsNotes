@@ -61,6 +61,7 @@
     data: {
         message : "Druid is cool"
     },
+    // 页面加载的时候，前面四个钩子函数已经被加载，一般加载页面参数，是写在created 这个钩子函数里面
     beforeCreate() {
         console.group('beforeCreate创建前的状态=============');
         console.log("%c%s","color:red","el    : "+this.el);
@@ -118,5 +119,16 @@
 
 
 
+![](D:\gitproject\github\SnailsNotes\docs\技术栈\前端框架\Vue\vue生命周期1.PNG)
 
 
+
+
+
+![](D:\gitproject\github\SnailsNotes\docs\技术栈\前端框架\Vue\vue生命周期2.PNG)
+
+
+
+
+
+![](D:\gitproject\github\SnailsNotes\docs\技术栈\前端框架\Vue\vue生命周期3.PNG)
